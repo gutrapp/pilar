@@ -82,7 +82,10 @@ class Biblioteca:
             cliente.multa_check()
 
     def alugar_livro(self, livro, cliente):
-        self.clientes[cliente].livro = livro
+        if not self.clientes[cliente].livro:
+            self.clientes[cliente].livro = livro
+        else:
+            print("Este usuario ja tem um livro registrado")
 
 
 class Livro:
